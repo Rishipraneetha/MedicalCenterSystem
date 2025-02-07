@@ -1,4 +1,4 @@
-1.
+
 # 🏥 SUST Medical Centre Management System
 
 A simple Java console application that simulates a basic medical center management system. It supports multiple user roles—**Doctors**, **Patients**, and **Pharmacists**—each with distinct functionalities. This project is designed to demonstrate object-oriented programming (OOP) principles, exception handling, and basic user authentication.
