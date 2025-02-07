@@ -169,25 +169,34 @@ public class MedicalCenterSystem {
     }
 
     public void start() {
-        System.out.println("Welcome to SUST Medical Centre Management System!");
-        Scanner scanner = new Scanner(System.in);
+    System.out.println("Welcome to SUST Medical Centre Management System!");
+    Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+    while (true) {
+        try {
             System.out.print("Enter Username: ");
             String username = scanner.nextLine();
+            System.out.println("DEBUG: Username entered - " + username);
 
             System.out.print("Enter Password: ");
             String password = scanner.nextLine();
+            System.out.println("DEBUG: Password entered - " + password);
 
             User user = authenticate(username, password);
             if (user != null) {
-                System.out.println("Login Successful! Welcome, " + user.userType);
+                System.out.println("Login Successful! Welcome, " + user.userType + " " + user.username);
                 user.showMenu(scanner);
             } else {
                 System.out.println("Invalid credentials. Please try again.");
             }
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+            e.printStackTrace();  // This will show the exact source of the error.
+            scanner.nextLine(); // clear any remaining input
         }
     }
+}
+
 
     public static void main(String[] args) {
         MedicalCenterSystem system = new MedicalCenterSystem();
